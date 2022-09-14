@@ -16,4 +16,12 @@ class Query
     @attach_keywords << Keyword.new(name, @keyword_weightage)
     @keyword_weightage -= 1
   end
+
+  def find_top_five_pages(pages)
+    pages.sort_by do |page|
+      page.attach_keywords.sum(0) do |key|
+        key.weightage * (Keyword.find_keyword(key.name, attach_keywords)&.weightage || 0) * -1
+      end
+    end
+  end
 end

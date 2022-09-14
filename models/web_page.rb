@@ -17,7 +17,9 @@ class WebPage
     @keyword_weightage -= 1
   end
 
-  def self.find_pages_for_keywords(keywords, pages)
-    matched_pages = pages.select {|page| page.attach_keywords.map(&:name) & keywords}
+  def self.find_match_pages_for_keywords(keywords, pages)
+    pages.select do |page|
+      (Keyword.get_attach_keywords(page) & keywords).size > 0
+    end
   end
 end

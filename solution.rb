@@ -5,7 +5,7 @@ require_relative 'helpers/general'
 
 p 'Please enter the pages and Queries'
 
-web_pages_and_queries = ["P Ford Car Review", "P Review Car", "Q Car", "Q Ford Review"]
+web_pages_and_queries = ["P Ford Review Car", "P Review Car", "Q Car", "Q Ford", "Q Review"]
 # Uncomment this block
 # loop do
 #   input = gets.chop
@@ -26,5 +26,8 @@ web_pages_and_queries.each do |input|
     search_results << search_engine.add_search_query(general_helper.extract_keywords(input))
   end
 end
-
-binding.pry
+search_engine.get_queries_result.each do |e|
+  p e
+  puts "\n"
+end
+# binding.pry
