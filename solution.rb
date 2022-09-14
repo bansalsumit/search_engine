@@ -1,5 +1,7 @@
 require_relative 'controllers/search_engines_controller'
 require_relative 'helpers/general'
+require 'pry';
+
 
 p 'Please enter the pages and Queries'
 
@@ -17,3 +19,5 @@ web_pages_and_queries.each do |input|
     search_engine.add_web_page(general_helper.extract_keywords(input))
   end
 end
+
+binding.pry
