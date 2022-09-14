@@ -3,7 +3,7 @@ require_relative 'keyword'
 class WebPage
   @@page_count = 0
 
-  attr_reader :attach_keywords
+  attr_reader :id, :attach_keywords
 
   def initialize
     @@page_count += 1

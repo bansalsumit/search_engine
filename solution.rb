@@ -26,8 +26,5 @@ web_pages_and_queries.each do |input|
     search_results << search_engine.add_search_query(general_helper.extract_keywords(input))
   end
 end
-search_engine.get_queries_result.each do |e|
-  p e
-  puts "\n"
-end
+search_engine.get_queries_result
 # binding.pry

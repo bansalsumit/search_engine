@@ -3,7 +3,7 @@ require_relative 'keyword'
 class Query
   @@query_count = 0
 
-  attr_reader :attach_keywords
+  attr_reader :id, :attach_keywords
 
   def initialize
     @@query_count += 1

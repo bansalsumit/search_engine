@@ -1,6 +1,7 @@
 require_relative '../models/web_page';
 require_relative '../models/query';
 require_relative '../models/keyword';
+require_relative '../views/result';
 
 class SearchEngine
   attr_reader :pages, :queries
@@ -27,12 +28,12 @@ class SearchEngine
   end
 
   def get_queries_result
-    results = []
+    result = []
     @queries.each do |query|
       matched_pages = WebPage.find_match_pages_for_keywords(Keyword.get_attach_keywords(query), @pages)
       matched_pages = query.find_top_five_pages(matched_pages)
-      results << [query, matched_pages]
+      result << [query, matched_pages]
     end
-    results
+    Result.print_query_pages(result)
   end
 end
