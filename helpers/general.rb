@@ -10,6 +10,6 @@ class General
   end
 
   def is_query_input?(str)
-    str.start_with?('Q')s
+    str.start_with?('Q')
   end
 end
